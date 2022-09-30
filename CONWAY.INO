@@ -61,6 +61,7 @@ int dx[8] = {01, 01, 00, -1, -1, -1, 00, 01};
 int dy[8] = {00, 01, 01, 01, 00, -1, -1, -1};
 
 void loop() { // Update function (cuts off at borders)
+  delay(100);
   bool grid2[n][m];
   for (int i = 0; i < n; i++) {
     for (int j = 0; j < m; j++) {
@@ -88,5 +89,4 @@ void loop() { // Update function (cuts off at borders)
       matrixpanel->drawPixel(i, j, matrixpanel->color565(color, color, color));
     }
   }
-  delay(100);
 }
