@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class IMAGETOLED { // To be used with a 64x32 LED panel code
+public class ImageToLED { // To be used with a 64x32 LED panel code - Turns 64x32 pngs into arrays of RGB values.
     static String toString(int x) {
         String s = Integer.toString(x, 16);
         while (s.length() < 2) s = "0" + s;
