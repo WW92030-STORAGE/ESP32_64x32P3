@@ -1,0 +1,16 @@
+INFORMATION THAT ONE MIGHT FORGET
+
+ESP32 (30 PINS)
+
+-Pins increase as you go down.
+-Left is 0-14 and Right is 15-29
+
+// HUB75E assumed pinout (source: MatrixPanel-DMA Library)
+// R1 | G1
+// B1 | GND
+// R2 | G2
+// B2 | E
+//  A | B
+//  C | D
+// CLK| LAT
+// OE | GND
