@@ -12,7 +12,7 @@ const int n = 32;
 const int m = 64;
 const int chain = 2; // Number of horizontally chained matrices
 
-
+// 2x as much data this time
 bool grid[n][m * chain] = {{false, false, false, false, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, true, true, true, true, true, true, true, true, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, false, false, false, false}, 
 {false, false, false, false, false, false, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, true, true, true, true, true, true, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, false, false, false, false, false, false}, 
 {false, false, false, false, false, false, false, false, false, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, false, false, false, false, false, false, false, false, false}, 
@@ -48,7 +48,7 @@ bool grid[n][m * chain] = {{false, false, false, false, true, true, true, true, 
 
 uint16_t col[n][m * chain];
 
-void disp() {
+void disp() { // Boolean array is threshold ... display the color grid masked by the bitmask
   for (int i = 0; i < n; i++) {
     for (int j = 0; j < m * chain; j++) {
       if (grid[i][j]) matrixpanel->drawPixel(j, i, col[i][j]);
@@ -57,19 +57,19 @@ void disp() {
   }
 }
 
-double rng() {
+double rng() { // Uniform RNG function
   return rand() / (RAND_MAX + 1.0);
 }
 
-double runif(double a, double b) {
+double runif(double a, double b) { // Uniform RNG function [a, b)
   return (rng() * (b - a)) + a;
 }
 
-uint16_t protogen() {
+uint16_t protogen() { // Random hex code
   return matrixpanel->color565((int)runif(0, 256), (int)runif(0, 256), (int)runif(0, 256));
 }
 
-uint16_t protogenfullhue() {
+uint16_t protogenfullhue() { // Random hex code with full saturation aand value
   int red = 0;
   int green = 0;
   int blue = 0;
@@ -139,7 +139,7 @@ void setup() {
 
 void loop() {
   uint16_t color = protogenfullhue();
-  for (int i = 0; i < n; i++) {
+  for (int i = 0; i < n; i++) { // Set the color
     for (int j = 0; j < m * chain; j++) col[i][j] = color;
   }
   delay(100);
