@@ -8,7 +8,7 @@ Library - [MatrixPanel-DMA](https://github.com/mrfaptastic/ESP32-HUB75-MatrixPan
 
 Pin values are integers. Integer pin values corresponding to GPIO pins are the same value (e.g. 18 = GPIO 18).<br/><br/>
 
-# HUB75E assumed pinout (source: MatrixPanel-DMA Library)
+# HUB75E ASSUMED PINOUT (source: MatrixPanel-DMA Library)
 
 R1 | G1 <br/>
 B1 | GND <br/>
@@ -16,7 +16,7 @@ R2 | G2 <br/>
 B2 | E <br/>
 A | B <br/>
 C | D <br/>
-CLK| LAT <br/>
+CLK | LAT <br/>
 OE | GND <br/>
 
 # DEFAULT DMA PINS
