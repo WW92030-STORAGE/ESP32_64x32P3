@@ -45,7 +45,7 @@ bool grid[n][128] = {{0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 
 uint16_t col[n][m * chain];
 
-void disp() {
+void disp() { // Boolean array is threshold. Displays color grid masked by bitmask
   for (int i = 0; i < n; i++) {
     for (int j = 0; j < m * chain; j++) {
       if (grid[i][j]) matrixpanel->drawPixel(j, i, col[i][j]);
@@ -54,19 +54,19 @@ void disp() {
   }
 }
 
-double rng() {
+double rng() { // Random uniform distribution
   return rand() / (RAND_MAX + 1.0);
 }
 
-double runif(double a, double b) {
+double runif(double a, double b) { // Random uniform [a, b)
   return (rng() * (b - a)) + a;
 }
 
-uint16_t protogen() {
+uint16_t protogen() { // Random hex color
   return matrixpanel->color565((int)runif(0, 256), (int)runif(0, 256), (int)runif(0, 256));
 }
 
-uint16_t protogenfullhue() {
+uint16_t protogenfullhue() { // Random color with full saturation and value
   int red = 0;
   int green = 0;
   int blue = 0;
