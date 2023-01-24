@@ -1,6 +1,6 @@
 INFORMATION THAT ONE MIGHT FORGET
 
-
+Pin values are integers. Integer pin values corresponding to GPIO pins are the same value (e.g. 18 = GPIO 18).
 
 // HUB75E assumed pinout (source: MatrixPanel-DMA Library)
 // R1 | G1
