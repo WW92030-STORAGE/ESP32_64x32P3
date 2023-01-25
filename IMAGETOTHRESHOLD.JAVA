@@ -11,7 +11,7 @@ public class ImageToTHRESHOLD { // To be used with a 64x32 LED panel code
         while (s.length() < 2) s = "0" + s;
         return "0x" + s;
     }
-    static String inputName = "INPUT.PNG"; // Input png file
+    static String inputName = "BITMASK_HORIZ.PNG"; // Input png file
     static String outputName = "output.txt"; // Output text file (contains formatted C++ code for a boolean array.)
     static int thresh = 80;
 
@@ -30,14 +30,16 @@ public class ImageToTHRESHOLD { // To be used with a 64x32 LED panel code
             }
         }
 
-        pw.write("bool grid[n][" + bi.getWidth() + "] = {");
+        boolean booleanmode = false;
+        int scale = 1;
+        pw.write((booleanmode ? "bool" : "int") + " grid[n][" + bi.getWidth() + "] = {");
         for (int i = 0; i < 32; i++) {
             if (i > 0) pw.write(", \n");
             pw.write("{");
             for (int j = 0; j < bi.getWidth(); j++) {
                 if (j > 0) pw.write(", ");
                 boolean nonzero = (grid[j][i].getRed() > thresh) || (grid[j][i].getGreen() > thresh) || (grid[j][i].getBlue() > thresh);
-                pw.write(nonzero ? "1" : "0");
+                pw.write(nonzero ? Integer.toString(scale) : "0");
             }
             pw.write("}");
         }
