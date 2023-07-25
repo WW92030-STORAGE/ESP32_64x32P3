@@ -108,7 +108,7 @@ uint16_t protogenfullhue() { // Random color with full saturation and value
 HUB75_I2S_CFG::i2s_pins _pins={R1_PIN, G1_PIN, B1_PIN, R2_PIN, G2_PIN, B2_PIN, A_PIN, B_PIN, C_PIN, D_PIN, E_PIN, LAT_PIN, OE_PIN, CLK_PIN};
 
 void setup() {
-  srand(time(NULL));
+  srand(abs(hallRead()));
   Serial.begin(9600);
   // put your setup code here, to run once:
   HUB75_I2S_CFG mxconfig(m, n, chain, _pins);
