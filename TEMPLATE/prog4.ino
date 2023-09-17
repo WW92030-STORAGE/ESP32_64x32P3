@@ -27,13 +27,14 @@ void loop() {
   delay(100);
   // Serial.println(rand() % 1024);
   disp(grid0);
-  
+
   blinkdelay++;
   if (blinkdelay >= blinkthreshold) {
     blinkdelay = 0;
-    blinkthreshold = (int)(runif(64, 256));
+    blinkthreshold = (int)(runif(16, 64));
     playAnimation(animation, 20, false);
     playAnimation(animation, 20, true);
     dispstats();
+    Serial.printf("BLINK THRESHOLD %ld\n", blinkthreshold);
   }
 }
