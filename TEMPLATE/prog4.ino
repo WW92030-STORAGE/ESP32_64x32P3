@@ -15,6 +15,9 @@ void setup() {
   disp(grid0);
 }
 
+int blinkdelay = 0;
+int blinkthreshold = 0;
+
 void loop() {
   uint16_t color = protogenfullhue();
   color = matrixpanel->color565(255, 255, 255);
@@ -24,7 +27,11 @@ void loop() {
   delay(100);
   // Serial.println(rand() % 1024);
   disp(grid0);
-  if (rand() % 64 == 0) {
+  
+  blinkdelay++;
+  if (blinkdelay >= blinkthreshold) {
+    blinkdelay = 0;
+    blinkthreshold = (int)(runif(64, 256));
     playAnimation(animation, 20, false);
     playAnimation(animation, 20, true);
     dispstats();
