@@ -24,8 +24,9 @@ void loop() {
   delay(100);
   // Serial.println(rand() % 1024);
   disp(grid0);
-  if (rand() % 16 == 0) {
+  if (rand() % 256 == 0) {
     playAnimation(animation, 20, false);
     playAnimation(animation, 20, true);
+    dispstats();
   }
 }
