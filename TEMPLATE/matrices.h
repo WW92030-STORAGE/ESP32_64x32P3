@@ -83,6 +83,11 @@ uint16_t protogenfullhue() { // Random color with full saturation and value
   }
 }
 
+uint16_t hex565(int x) {
+  // cout << x << " = [" << (x>>16) % (1<<8) << " " << (x>>8) % (1<<8) << " " << x % (1<<8) << "]\n";
+  return matrixpanel->color565((x>>16) % (1<<8), (x>>8) % (1<<8), x % (1<<8));
+}
+
 // Displaying Outputs
 
 void disp(vector<vector<bool>> grid) { // Boolean array is threshold. Displays color grid masked by bitmask
