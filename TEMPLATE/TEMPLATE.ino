@@ -25,6 +25,8 @@ void eeprom_setup() {
 
 // SETUP
 
+SET_LOOP_TASK_STACK_SIZE(16*1024);
+
 void setup() {
   eeprom_setup();
   matrixsetup();
