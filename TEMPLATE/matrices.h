@@ -88,6 +88,13 @@ uint16_t hex565(int x) {
   return matrixpanel->color565((x>>16) % (1<<8), (x>>8) % (1<<8), x % (1<<8));
 }
 
+uint16_t spectrum(int hour) {
+  while (hour < 0) hour += 12;
+  hour %= 12;
+  uint16_t hrs[12] = {hex565(0xFF0000), hex565(0xFF8000), hex565(0xFFFF00), hex565(0x80FF00), hex565(0x00FF00), hex565(0x00FF80), hex565(0x00FFFF), hex565(0x0080FF), hex565(0x0000FF), hex565(0x8000FF), hex565(0xFF00FF), hex565(0xFF0080)};
+  return hrs[hour];
+}
+
 // Displaying Outputs
 
 void disp(vector<vector<bool>> grid) { // Boolean array is threshold. Displays color grid masked by bitmask
