@@ -7,7 +7,8 @@ It's like a standard template for matrix programs.
 */
 
 #include <ESP32-HUB75-MatrixPanel-I2S-DMA.h>
-#include <bits/stdc++.h> 
+#include <vector>
+#include <cstdint>
 using namespace std;
 #include <esp_random.h>
 
