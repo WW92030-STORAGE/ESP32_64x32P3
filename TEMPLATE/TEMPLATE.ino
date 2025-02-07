@@ -1,6 +1,7 @@
 // Original library and code base - https://github.com/mrfaptastic/ESP32-HUB75-MatrixPanel-I2S-DMA
 #include <ESP32-HUB75-MatrixPanel-I2S-DMA.h>
-#include <bits/stdc++.h> 
+#include <vector>
+#include <cstdint>
 using namespace std;
 
 #include <esp_random.h>
