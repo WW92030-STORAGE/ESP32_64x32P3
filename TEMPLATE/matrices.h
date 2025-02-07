@@ -106,6 +106,14 @@ void disp(vector<vector<bool>> grid) { // Boolean array is threshold. Displays c
   }
 }
 
+void disp() { // Boolean array is threshold. Displays color grid masked by bitmask
+  for (int i = 0; i < n; i++) {
+    for (int j = 0; j < m * chain; j++) {
+      matrixpanel->drawPixel(j, i, col[i][j]);
+    }
+  }
+}
+
 void playAnimation(vector<vector<vector<bool>>> anim, int d, bool backward) {
   for (int i = 0; i < anim.size(); i++) {
     int index = (backward) ? (anim.size() - 1 - i) : i;
